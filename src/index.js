@@ -26,6 +26,10 @@ class Routing extends Component {
 		this.setState({ selectedOption })
 	}
 
+	handleReset = () => {
+		this.setState({ submitValue: '' })
+	}
+
 	handleSubmit = (submitValue) => {
 		this.setState({ submitValue })
 	}
@@ -41,7 +45,7 @@ class Routing extends Component {
 						<Row middle="xs">
 							<Col xs={12}>
 								<div className="b-heading">
-									<Link to="/">
+									<Link to="/" onClick={this.handleReset}>
 										<h1 className="b-title">Where in the world?</h1>
 									</Link>
 								</div>
@@ -51,7 +55,7 @@ class Routing extends Component {
 				</header>
 				<main>
 					<Grid>
-						<Route exact path="/" component={() => <App key={0} selectedOption={selectedOption} handleChange={this.handleChange} handleSubmit={this.handleSubmit} submitValue={submitValue} allCountries={getCountryData} />} />
+						<Route exact path="/" component={() => <App key={0} selectedOption={selectedOption} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleReset={this.handleReset} submitValue={submitValue} allCountries={getCountryData} />} />
 						<Route path="/countries/:id" render={(props) => <Country {...props} />} />
 					</Grid>
 				</main>

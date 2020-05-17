@@ -14,6 +14,7 @@ const App = (props) => {
 	const {
 		allCountries,
 		handleChange,
+		handleReset,
 		handleSubmit,
 		selectedOption,
 		submitValue
@@ -48,7 +49,8 @@ const App = (props) => {
 		setSearchValue(event.target.value)
 	}
 
-	const handleReset = () => {
+	const reset = () => {
+		handleReset()
 		setSearchValue('')
 	}
 
@@ -88,7 +90,7 @@ const App = (props) => {
 					/>
 					<button
 						className="b-toolbar__reset"
-						onClick={handleReset}
+						onClick={reset}
 						type="reset"
 					>
 						<FontAwesomeIcon icon={faTimesCircle} size="lg" />
